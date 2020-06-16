@@ -141,7 +141,7 @@ graph2 = fig2.to_dict()
 external_stylesheets = ['https://codepen.io/amyoshino/pen/jzXypZ.css']
 # Boostrap CSS.
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
+server = app.server
 app.layout = html.Div(
     html.Div([
         html.Div(
