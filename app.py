@@ -16,16 +16,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import plotly.express as px
-
-
-# Setup the app
-# Make sure not to change this file name or the variable names below,
-# the template is configured to execute 'server' on 'app.py'
-server = flask.Flask(__name__)
-server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-app = dash.Dash(__name__, server=server)
-
-
+model = joblib.load('911_Price.pkl')
 # Put your Dash code here
 test_model_data = pd.read_csv('https://raw.githubusercontent.com/popkdodge/Unit-2-Build/master/Test_Car.csv',index_col=[0])
 test_model_data = test_model_data.T
@@ -556,5 +547,4 @@ def update_graph3(Milage, condition, Year, Color, Transmission, Cabriolet, S_RS)
 
 # Run the Dash app
 if __name__ == '__main__':
-    model = joblib.load('911_Price.pkl')
     app.server.run(debug=True, threaded=True)
