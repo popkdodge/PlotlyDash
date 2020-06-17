@@ -16,7 +16,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import plotly.express as px
-model = joblib.load('911_Price.pkl')
+model = joblib.load('PlotlyDash\911_Price.pkl')
 # Put your Dash code here
 test_model_data = pd.read_csv('https://raw.githubusercontent.com/popkdodge/Unit-2-Build/master/Test_Car.csv',index_col=[0])
 test_model_data = test_model_data.T
@@ -28,7 +28,7 @@ np.random.seed(1)
 mean = df.Price[df.Year==number[0]].mean()
 std = df.Price[df.Year==number[0]].std()
 x = np.random.randn(10000)
-model = joblib.load('911_Price.pkl')
+model = joblib.load('PlotlyDash\911_Price.pkl')
 price = model.predict(test_model_data)
 spot = (mean-price[0])/std
 hist_data = [x]
