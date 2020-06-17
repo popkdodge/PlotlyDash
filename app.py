@@ -374,7 +374,7 @@ def update_year_and_std(Milage, condition, Year, Color, Transmission, Cabriolet,
     mean = df.Price[df.Year==number].mean()
     std = df.Price[df.Year==number].std()
     x = np.random.randn(10000)
-    model = joblib.load('911_Price.pkl')
+    model = joblib.load('PlotlyDash\911_Price.pkl')
     price = model.predict(test_model_data)
     spot = (mean-price[0])/-std
     hist_data = [x]
